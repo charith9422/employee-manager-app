@@ -1,23 +1,22 @@
 import { MouseEventHandler } from "react";
 import styles from "./Button.module.scss";
+import Button from "react-bootstrap/Button";
 
 type ButtonProps = {
 	buttonText: string;
 	onBtnClick?: MouseEventHandler<HTMLButtonElement>;
-	color?: string;
 	variant?: string;
 };
-const Button: React.FC<ButtonProps> = ({
+const CustomButton: React.FC<ButtonProps> = ({
 	buttonText,
 	onBtnClick,
-	color,
 	variant,
 }) => {
 	return (
-		<button className={styles.btnWrapper} onClick={onBtnClick}>
+		<Button onClick={onBtnClick} variant={variant}>
 			{buttonText}
-		</button>
+		</Button>
 	);
 };
 
-export default Button;
+export default CustomButton;

@@ -1,4 +1,9 @@
-.cardContent {
+.cardContent,
+.actionItems {
 	list-style: none;
 	padding-left: 0;
+}
+.actionItems {
+	display: flex;
+	float: right;
 }

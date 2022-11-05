@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { Trash3 } from "react-bootstrap-icons";
 import Button from "../../Elements/Button/Button";
+import Icon from "../../Elements/Icon/Icon";
 import styles from "./Table.module.scss";
 
 type TableProps = {};
@@ -35,8 +37,13 @@ const Table: React.FC<TableProps> = () => {
 						<td>+0712054485</td>
 						<td>Male</td>
 						<td>
-							<Button buttonText="Edit"></Button>
-							<Button buttonText="Edit"></Button>
+							<div className={styles.actionItems}>
+								<Button buttonText="Edit" variant="secondary"></Button>
+								<Icon
+									icon={<Trash3 />}
+									onClick={() => console.log("dd")}
+								></Icon>
+							</div>
 						</td>
 					</tr>
 					<tr>

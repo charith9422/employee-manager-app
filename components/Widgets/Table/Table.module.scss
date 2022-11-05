@@ -1,5 +1,6 @@
 .tableWrapper {
 	border-collapse: collapse;
+	width: 100%;
 	th,
 	td {
 		border: 1px solid #2bd640;
@@ -10,5 +11,9 @@
 	}
 	th {
 		background: #59bd1a;
+	}
+	.actionItems {
+		display: flex;
+		padding: 0 1rem;
 	}
 }

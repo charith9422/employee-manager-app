@@ -1,20 +1,34 @@
 import { Button, Card } from "react-bootstrap";
+import { Trash3 } from "react-bootstrap-icons";
+import { List } from "../../Elements/Dropdown/Dropdown";
+import Icon from "../../Elements/Icon/Icon";
 import styles from "./CardWidget.module.scss";
 
-type CardWidgetProps = {};
-const CardWidget: React.FC<CardWidgetProps> = () => {
+export interface CardData {
+	imageUrl: string;
+	title: string;
+	otherData: List[];
+}
+type CardWidgetProps = {
+	data: CardData;
+	actionItems: React.ReactNode[];
+};
+const CardWidget: React.FC<CardWidgetProps> = ({ data, actionItems }) => {
 	return (
-		<Card style={{ width: "18rem" }}>
-			<Card.Img
-				variant="top"
-				src="https://randomuser.me/api/portraits/men/92.jpg"
-			/>
+		<Card>
+			<Card.Img variant="top" src={data.imageUrl} />
 			<Card.Body>
-				<Card.Subtitle>David Miller</Card.Subtitle>
+				<Card.Subtitle>{data.title}</Card.Subtitle>
 				<ul className={styles.cardContent}>
-					<li>test@gmail.com</li>
-					<li>+94712021552</li>
-					<li>Male</li>
+					{data.otherData.map((d) => (
+						<li key={d.label}>{d.value}</li>
+					))}
+				</ul>
+
+				<ul className={styles.actionItems}>
+					{actionItems.map((d, i) => (
+						<li key={i}>{d}</li>
+					))}
 				</ul>
 			</Card.Body>
 		</Card>
