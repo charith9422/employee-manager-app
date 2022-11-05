@@ -5,7 +5,15 @@ export interface Employee {
 	email: string;
 	number: string;
 	gender: string;
-	photo: string;
+	photo?: string;
+}
+
+export interface EmployeePayload {
+	first_name: string;
+	last_name: string;
+	email: string;
+	number: string;
+	gender: string;
 }
 
 export interface IResponse {

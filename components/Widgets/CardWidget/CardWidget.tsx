@@ -16,8 +16,15 @@ type CardWidgetProps = {
 };
 const CardWidget: React.FC<CardWidgetProps> = ({ data }) => {
 	return (
-		<Card style={{ width: "18rem", marginBottom: "1rem" }}>
-			<Card.Img variant="top" src={data.photo} />
+		<Card style={{ width: "15rem", marginBottom: "1rem" }}>
+			<Card.Img
+				variant="top"
+				src={
+					data.photo
+						? data.photo
+						: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png"
+				}
+			/>
 			<Card.Body>
 				<Card.Subtitle>{data.first_name + " " + data.last_name}</Card.Subtitle>
 				<ul className={styles.cardContent}>

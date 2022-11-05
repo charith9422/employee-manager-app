@@ -2,7 +2,10 @@ import { Col, Container, Row } from "react-bootstrap";
 import Button from "../../Elements/Button/Button";
 import Form from "../../Widgets/Form/Form";
 
-const AddEmployee: React.FC = () => {
+type AddEmployeeProps = {
+	addEmployee: ({ values }: any) => void;
+};
+const AddEmployee: React.FC<AddEmployeeProps> = ({ addEmployee }) => {
 	return (
 		<>
 			<Container>

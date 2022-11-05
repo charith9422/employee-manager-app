@@ -1,5 +1,5 @@
 import { axiosClient } from "../../fetchers/employee.fetcher";
-import { Employee } from "../../models";
+import { Employee, EmployeePayload } from "../../models";
 
 const getAllEmployees = () => {
 	return axiosClient
@@ -10,7 +10,7 @@ const getAllEmployees = () => {
 		});
 };
 
-const createEmployee = (data: Employee) => {
+const createEmployee = (data: EmployeePayload) => {
 	return axiosClient.post("/employee", data).catch((error) => {
 		console.log(error);
 	});

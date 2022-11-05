@@ -28,7 +28,12 @@ const Table: React.FC<TableProps> = ({ data }) => {
 					{data.map((d, i) => (
 						<tr key={i}>
 							<td>
-								<Image src={d.photo} alt={""} width="60" height={60}></Image>
+								<Image
+									src={d.photo ? d.photo : ""}
+									alt={""}
+									width="60"
+									height={60}
+								></Image>
 							</td>
 							<td>{d.first_name}</td>
 							<td>{d.last_name}</td>
