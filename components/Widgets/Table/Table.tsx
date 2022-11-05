@@ -1,12 +1,15 @@
 import Image from "next/image";
 import { Trash3 } from "react-bootstrap-icons";
+import { Employee } from "../../../models";
 import Button from "../../Elements/Button/Button";
 import Icon from "../../Elements/Icon/Icon";
 import styles from "./Table.module.scss";
 
-type TableProps = {};
+type TableProps = {
+	data: Employee[];
+};
 
-const Table: React.FC<TableProps> = () => {
+const Table: React.FC<TableProps> = ({ data }) => {
 	return (
 		<>
 			<table className={styles.tableWrapper}>
@@ -22,49 +25,22 @@ const Table: React.FC<TableProps> = () => {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>
-							<Image
-								src="https://randomuser.me/api/portraits/men/92.jpg"
-								alt={""}
-								width="60"
-								height={60}
-							></Image>
-						</td>
-						<td>David</td>
-						<td>Miller</td>
-						<td>test@gmail.com</td>
-						<td>+0712054485</td>
-						<td>Male</td>
-						<td>
-							<div className={styles.actionItems}>
+					{data.map((d, i) => (
+						<tr key={i}>
+							<td>
+								<Image src={d.photo} alt={""} width="60" height={60}></Image>
+							</td>
+							<td>{d.first_name}</td>
+							<td>{d.last_name}</td>
+							<td>{d.email}</td>
+							<td>{d.number}</td>
+							<td>{d.gender}</td>
+							<td>
 								<Button buttonText="Edit" variant="secondary"></Button>
-								<Icon
-									icon={<Trash3 />}
-									onClick={() => console.log("dd")}
-								></Icon>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<Image
-								src="https://randomuser.me/api/portraits/men/92.jpg"
-								alt={""}
-								width="60"
-								height={60}
-							></Image>
-						</td>
-						<td>David</td>
-						<td>Miller</td>
-						<td>test@gmail.com</td>
-						<td>+0712054485</td>
-						<td>Male</td>
-						<td>
-							<Button buttonText="Edit"></Button>
-							<Button buttonText="Edit"></Button>
-						</td>
-					</tr>
+								<Button buttonText="Delete" variant="danger"></Button>
+							</td>
+						</tr>
+					))}
 				</tbody>
 			</table>
 		</>

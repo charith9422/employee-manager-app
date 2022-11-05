@@ -5,7 +5,9 @@ import { AppDispatch, RootState } from "../../store/store";
 
 export const useAllEmployees = () => {
 	const dispatch = useDispatch<AppDispatch>();
-	const employees = useSelector((state: RootState) => state.employee.employees);
+	const employees = useSelector(
+		(state: RootState) => state.employee.response.employeeData
+	);
 	const loading = useSelector((state: RootState) => state.employee.loading);
 	const error = useSelector((state: RootState) => state.employee.error);
 

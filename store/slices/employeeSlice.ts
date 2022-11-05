@@ -4,7 +4,7 @@ import { axiosClient } from "../../fetchers/employee.fetcher";
 import EmployeeService from "../../helpers/services/employee";
 
 const initialState: EmployeeState = {
-	employees: [],
+	response: { employeeData: [], message: "" },
 	loading: false,
 	error: "",
 };
@@ -26,12 +26,12 @@ export const employeeSlice = createSlice({
 		});
 		builder.addCase(fetchEmployees.fulfilled, (state, action) => {
 			state.loading = false;
-			state.employees = action.payload;
+			state.response = action.payload;
 			state.error = "";
 		});
 		builder.addCase(fetchEmployees.rejected, (state, action) => {
 			state.loading = false;
-			state.employees = [];
+			state.response = { employeeData: [], message: "" };
 			state.error = action.error.message
 				? action.error.message
 				: "Error Occurred!";

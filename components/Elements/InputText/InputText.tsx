@@ -1,12 +1,12 @@
 import { Form } from "react-bootstrap";
 
 type InputTextProps = {
-	textInput: string;
+	label: string;
 };
-const InputText: React.FC<InputTextProps> = ({ textInput }) => {
+const InputText: React.FC<InputTextProps> = ({ label }) => {
 	return (
 		<>
-			<Form.Label>Label</Form.Label>
+			<Form.Label>{label}</Form.Label>
 			<Form.Control type="text" />
 		</>
 	);

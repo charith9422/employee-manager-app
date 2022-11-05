@@ -6,4 +6,18 @@
 .actionItems {
 	display: flex;
 	float: right;
+
+	.delete {
+		font-size: 0.9rem;
+		border-radius: 50%;
+		padding: 0.9rem;
+		background: #fc0328;
+	}
+	.edit {
+		font-size: 0.9rem;
+		border-radius: 50%;
+		padding: 1rem;
+		background: #1bbd09;
+		margin-left: 0.1rem;
+	}
 }

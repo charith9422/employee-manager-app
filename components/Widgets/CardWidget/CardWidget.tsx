@@ -1,34 +1,46 @@
 import { Button, Card } from "react-bootstrap";
-import { Trash3 } from "react-bootstrap-icons";
+import { PersonCheck, Trash3, Trash3Fill } from "react-bootstrap-icons";
+import { Employee } from "../../../models";
 import { List } from "../../Elements/Dropdown/Dropdown";
 import Icon from "../../Elements/Icon/Icon";
 import styles from "./CardWidget.module.scss";
 
-export interface CardData {
+/* export interface CardData {
 	imageUrl: string;
 	title: string;
 	otherData: List[];
-}
+} */
 type CardWidgetProps = {
-	data: CardData;
-	actionItems: React.ReactNode[];
+	data: Employee;
+	//actionItems: React.ReactNode[];
 };
-const CardWidget: React.FC<CardWidgetProps> = ({ data, actionItems }) => {
+const CardWidget: React.FC<CardWidgetProps> = ({ data }) => {
 	return (
-		<Card>
-			<Card.Img variant="top" src={data.imageUrl} />
+		<Card style={{ width: "18rem", marginBottom: "1rem" }}>
+			<Card.Img variant="top" src={data.photo} />
 			<Card.Body>
-				<Card.Subtitle>{data.title}</Card.Subtitle>
+				<Card.Subtitle>{data.first_name + " " + data.last_name}</Card.Subtitle>
 				<ul className={styles.cardContent}>
-					{data.otherData.map((d) => (
-						<li key={d.label}>{d.value}</li>
-					))}
+					<li>{data.email}</li>
+					<li>{data.number}</li>
+					<li>{data.gender}</li>
 				</ul>
 
 				<ul className={styles.actionItems}>
-					{actionItems.map((d, i) => (
-						<li key={i}>{d}</li>
-					))}
+					<li className={styles.delete}>
+						<Icon
+							icon={<Trash3 />}
+							onClick={() => console.log("dd")}
+							key="1"
+						></Icon>
+					</li>
+					<li className={styles.edit}>
+						<Icon
+							icon={<PersonCheck />}
+							onClick={() => console.log("dd")}
+							key="2"
+						></Icon>
+					</li>
 				</ul>
 			</Card.Body>
 		</Card>
