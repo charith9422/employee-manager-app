@@ -6,15 +6,16 @@ import CardWidget from "../../Widgets/CardWidget/CardWidget";
 
 type GridLayoutProps = {
 	data: Employee[];
+	onEdit: any;
 };
-const GridLayout: React.FC<GridLayoutProps> = ({ data }) => {
+const GridLayout: React.FC<GridLayoutProps> = ({ data, onEdit }) => {
 	return (
 		<>
 			<Container>
 				<Row>
 					{data.map((d, i) => (
 						<Col key={i}>
-							<CardWidget data={d} key={i} />
+							<CardWidget data={d} key={i} onEdit={onEdit} />
 						</Col>
 					))}
 				</Row>

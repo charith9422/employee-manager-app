@@ -12,9 +12,10 @@ import styles from "./CardWidget.module.scss";
 } */
 type CardWidgetProps = {
 	data: Employee;
+	onEdit: (operation: string, employee: Employee) => void;
 	//actionItems: React.ReactNode[];
 };
-const CardWidget: React.FC<CardWidgetProps> = ({ data }) => {
+const CardWidget: React.FC<CardWidgetProps> = ({ data, onEdit }) => {
 	return (
 		<Card style={{ width: "15rem", marginBottom: "1rem" }}>
 			<Card.Img
@@ -34,19 +35,14 @@ const CardWidget: React.FC<CardWidgetProps> = ({ data }) => {
 				</ul>
 
 				<ul className={styles.actionItems}>
-					<li className={styles.delete}>
-						<Icon
-							icon={<Trash3 />}
-							onClick={() => console.log("dd")}
-							key="1"
-						></Icon>
+					<li
+						className={styles.delete}
+						onClick={() => console.log("dd", data._id)}
+					>
+						<Icon icon={<Trash3 />} key="1"></Icon>
 					</li>
-					<li className={styles.edit}>
-						<Icon
-							icon={<PersonCheck />}
-							onClick={() => console.log("dd")}
-							key="2"
-						></Icon>
+					<li className={styles.edit} onClick={() => onEdit("EDIT", data)}>
+						<Icon icon={<PersonCheck />} key="2"></Icon>
 					</li>
 				</ul>
 			</Card.Body>

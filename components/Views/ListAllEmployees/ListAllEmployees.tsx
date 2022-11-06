@@ -9,11 +9,13 @@ import TableLayout from "../../Layouts/TableLayout/TableLayout";
 type ListAllEmployeesProps = {
 	addEmployee: () => void;
 	data: Employee[];
+	onClickEdit: any;
 };
 
 const ListAllEmployees: React.FC<ListAllEmployeesProps> = ({
 	addEmployee,
 	data,
+	onClickEdit,
 }) => {
 	const [isGrid, setIsGrid] = useState<boolean>(true);
 
@@ -31,7 +33,11 @@ const ListAllEmployees: React.FC<ListAllEmployeesProps> = ({
 				<br></br>
 				<Row>
 					<Col>
-						{isGrid ? <GridLayout data={data} /> : <TableLayout data={data} />}
+						{isGrid ? (
+							<GridLayout data={data} onEdit={onClickEdit} />
+						) : (
+							<TableLayout data={data} />
+						)}
 					</Col>
 				</Row>
 			</Container>

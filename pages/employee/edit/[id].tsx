@@ -4,7 +4,7 @@ import EditEmployee from "../../../components/Views/EditEmployee/EditEmployee";
 const Index: NextPage = () => {
 	return (
 		<>
-			<EditEmployee />
+			<EditEmployee operation={"EDIT"} />
 		</>
 	);
 };

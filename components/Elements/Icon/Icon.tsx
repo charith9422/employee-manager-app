@@ -1,11 +1,11 @@
 type IconProps = {
 	icon: React.ReactNode;
-	onClick: () => void;
+	//onClick: () => void;
 };
-const Icon: React.FC<IconProps> = ({ icon, onClick }) => {
+const Icon: React.FC<IconProps> = ({ icon }) => {
 	return (
 		<>
-			<div onClick={onClick}>{icon}</div>
+			<div>{icon}</div>
 		</>
 	);
 };

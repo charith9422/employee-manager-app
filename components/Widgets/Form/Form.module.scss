@@ -1,0 +1,20 @@
+.customControls {
+	display: flex;
+	padding: 0.5rem;
+	label {
+		width: 20%;
+	}
+	input {
+		width: 80%;
+		height: 2rem;
+	}
+
+	select {
+		width: 80%;
+		height: 2rem;
+	}
+}
+.errors {
+	padding-left: 21%;
+	color: red;
+}

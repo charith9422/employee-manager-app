@@ -16,8 +16,10 @@ const createEmployee = (data: EmployeePayload) => {
 	});
 };
 
-const updateEmployee = (id: string, data: Employee) => {
-	return axiosClient.put(`/employee/${id}`, data);
+const updateEmployee = (id: string, data: EmployeePayload) => {
+	return axiosClient.put(`/employee/${id}`, data).catch((error) => {
+		console.log(error);
+	});
 };
 
 const deleteEmployee = (id: string) => {
