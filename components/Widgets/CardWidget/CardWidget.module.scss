@@ -12,6 +12,11 @@
 		border-radius: 50%;
 		padding: 0.9rem;
 		background: #fc0328;
+		cursor: pointer;
+		box-shadow: 0.3rem 0.3rem 0.5rem 0.2rem rgba(0, 0, 0, 0.8);
+		&:hover {
+			background: #d21544;
+		}
 	}
 	.edit {
 		font-size: 0.9rem;
@@ -19,5 +24,10 @@
 		padding: 1rem;
 		background: #1bbd09;
 		margin-left: 0.1rem;
+		cursor: pointer;
+		box-shadow: 0.3rem 0.3rem 0.5rem 0.2rem rgba(0, 0, 0, 0.8);
+		&:hover {
+			background: #15d241;
+		}
 	}
 }

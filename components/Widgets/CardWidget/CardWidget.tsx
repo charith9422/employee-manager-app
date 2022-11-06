@@ -13,9 +13,10 @@ import styles from "./CardWidget.module.scss";
 type CardWidgetProps = {
 	data: Employee;
 	onEdit: (operation: string, employee: EmployeePayload) => void;
+	onDelete: (id: string) => void;
 	//actionItems: React.ReactNode[];
 };
-const CardWidget: React.FC<CardWidgetProps> = ({ data, onEdit }) => {
+const CardWidget: React.FC<CardWidgetProps> = ({ data, onEdit, onDelete }) => {
 	return (
 		<Card style={{ width: "15rem", marginBottom: "1rem" }}>
 			<Card.Img
@@ -35,10 +36,7 @@ const CardWidget: React.FC<CardWidgetProps> = ({ data, onEdit }) => {
 				</ul>
 
 				<ul className={styles.actionItems}>
-					<li
-						className={styles.delete}
-						onClick={() => console.log("dd", data._id)}
-					>
+					<li className={styles.delete} onClick={() => onDelete(data._id)}>
 						<Icon icon={<Trash3 />} key="1"></Icon>
 					</li>
 					<li className={styles.edit} onClick={() => onEdit("EDIT", data)}>

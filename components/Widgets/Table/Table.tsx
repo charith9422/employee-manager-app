@@ -8,9 +8,10 @@ import styles from "./Table.module.scss";
 type TableProps = {
 	data: Employee[];
 	onEdit: (operation: string, employee: EmployeePayload) => void;
+	onDelete: (id: string) => void;
 };
 
-const Table: React.FC<TableProps> = ({ data, onEdit }) => {
+const Table: React.FC<TableProps> = ({ data, onEdit, onDelete }) => {
 	return (
 		<>
 			<table className={styles.tableWrapper}>
@@ -51,7 +52,11 @@ const Table: React.FC<TableProps> = ({ data, onEdit }) => {
 									variant="secondary"
 									onBtnClick={() => onEdit("EDIT", d)}
 								></Button>
-								<Button buttonText="Delete" variant="danger"></Button>
+								<Button
+									buttonText="Delete"
+									variant="danger"
+									onBtnClick={() => onDelete(d._id)}
+								></Button>
 							</td>
 						</tr>
 					))}
