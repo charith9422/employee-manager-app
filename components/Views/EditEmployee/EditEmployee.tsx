@@ -23,7 +23,9 @@ const EditEmployee: React.FC<EditEmployeeProps> = () => {
 				<br></br>
 				<Row>
 					<Col>
-						<Form operation="EDIT" />
+						<div className="d-flex justify-content-center">
+							<Form operation="EDIT" />
+						</div>
 					</Col>
 				</Row>
 			</Container>

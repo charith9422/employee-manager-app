@@ -53,7 +53,6 @@ const FormN: React.FC<FormProps> = ({ operation }) => {
 
 	const onSubmit = async (values: EmployeePayload) => {
 		if (operation === "EDIT") {
-			console.log("id", id);
 			await updateEmployee(id, values).then((res) => {
 				if (res) {
 					router.push("/employee/list");

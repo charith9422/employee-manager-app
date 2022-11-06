@@ -1,6 +1,6 @@
 import { Button, Card } from "react-bootstrap";
 import { PersonCheck, Trash3, Trash3Fill } from "react-bootstrap-icons";
-import { Employee } from "../../../models";
+import { Employee, EmployeePayload } from "../../../models";
 import { List } from "../../Elements/Dropdown/Dropdown";
 import Icon from "../../Elements/Icon/Icon";
 import styles from "./CardWidget.module.scss";
@@ -12,7 +12,7 @@ import styles from "./CardWidget.module.scss";
 } */
 type CardWidgetProps = {
 	data: Employee;
-	onEdit: (operation: string, employee: Employee) => void;
+	onEdit: (operation: string, employee: EmployeePayload) => void;
 	//actionItems: React.ReactNode[];
 };
 const CardWidget: React.FC<CardWidgetProps> = ({ data, onEdit }) => {

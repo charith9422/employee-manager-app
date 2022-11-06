@@ -36,7 +36,7 @@ const ListAllEmployees: React.FC<ListAllEmployeesProps> = ({
 						{isGrid ? (
 							<GridLayout data={data} onEdit={onClickEdit} />
 						) : (
-							<TableLayout data={data} />
+							<TableLayout data={data} onEdit={onClickEdit} />
 						)}
 					</Col>
 				</Row>

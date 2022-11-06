@@ -1,12 +1,12 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { Trash3 } from "react-bootstrap-icons";
-import { Employee } from "../../../models";
+import { Employee, EmployeePayload } from "../../../models";
 import Icon from "../../Elements/Icon/Icon";
 import CardWidget from "../../Widgets/CardWidget/CardWidget";
 
 type GridLayoutProps = {
 	data: Employee[];
-	onEdit: any;
+	onEdit: (operation: string, employee: EmployeePayload) => void;
 };
 const GridLayout: React.FC<GridLayoutProps> = ({ data, onEdit }) => {
 	return (
