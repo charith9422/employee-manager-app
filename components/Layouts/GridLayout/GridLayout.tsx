@@ -1,7 +1,5 @@
-import { Col, Container, Row } from "react-bootstrap";
-import { Trash3 } from "react-bootstrap-icons";
+import { Col, Row } from "react-bootstrap";
 import { Employee, EmployeePayload } from "../../../models";
-import Icon from "../../Elements/Icon/Icon";
 import CardWidget from "../../Widgets/CardWidget/CardWidget";
 
 type GridLayoutProps = {

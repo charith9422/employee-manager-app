@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import ListAllEmployees from "../../../components/Views/ListAllEmployees/ListAllEmployees";
 import EmployeeContext from "../../../context/EmployeeContext";
 import { useAllEmployees } from "../../../helpers/hooks/useAllEmployees";

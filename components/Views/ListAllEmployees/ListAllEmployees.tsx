@@ -16,7 +16,6 @@ type ListAllEmployeesProps = {
 	addEmployee: () => void;
 	data: Employee[];
 	onClickEdit: any;
-	//onDelete: any;
 };
 
 const ListAllEmployees: React.FC<ListAllEmployeesProps> = ({

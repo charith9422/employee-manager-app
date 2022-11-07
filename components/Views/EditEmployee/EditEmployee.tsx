@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { Col, Container, Row } from "react-bootstrap";
 import Button from "../../Elements/Button/Button";
-import Form from "../../Widgets/Form/Form";
+import FormWidget from "../../Widgets/FormWidget/FormWidget";
 
 type EditEmployeeProps = {
 	operation: string;
@@ -24,7 +24,7 @@ const EditEmployee: React.FC<EditEmployeeProps> = () => {
 				<Row>
 					<Col>
 						<div className="d-flex justify-content-center">
-							<Form operation="EDIT" />
+							<FormWidget operation="EDIT" />
 						</div>
 					</Col>
 				</Row>

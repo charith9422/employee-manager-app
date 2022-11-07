@@ -1,24 +1,19 @@
-import { Button, Card } from "react-bootstrap";
-import { PersonCheck, Trash3, Trash3Fill } from "react-bootstrap-icons";
+import { Card } from "react-bootstrap";
+import { PersonCheck, Trash3 } from "react-bootstrap-icons";
+import { cardWidgetStyle } from "../../../helpers/common";
 import { Employee, EmployeePayload } from "../../../models";
-import { List } from "../../Elements/Dropdown/Dropdown";
 import Icon from "../../Elements/Icon/Icon";
 import styles from "./CardWidget.module.scss";
 
-/* export interface CardData {
-	imageUrl: string;
-	title: string;
-	otherData: List[];
-} */
 type CardWidgetProps = {
 	data: Employee;
 	onEdit: (operation: string, employee: EmployeePayload) => void;
 	onDelete: (id: string) => void;
-	//actionItems: React.ReactNode[];
 };
+
 const CardWidget: React.FC<CardWidgetProps> = ({ data, onEdit, onDelete }) => {
 	return (
-		<Card style={{ width: "20rem", marginBottom: "1rem" }}>
+		<Card style={cardWidgetStyle}>
 			<Card.Img
 				variant="top"
 				src={

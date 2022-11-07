@@ -1,5 +1,5 @@
 import { axiosClient } from "../../fetchers/employee.fetcher";
-import { Employee, EmployeePayload } from "../../models";
+import { EmployeePayload } from "../../models";
 
 const getAllEmployees = () => {
 	return axiosClient

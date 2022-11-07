@@ -1,6 +1,5 @@
 type IconProps = {
 	icon: React.ReactNode;
-	//onClick: () => void;
 };
 const Icon: React.FC<IconProps> = ({ icon }) => {
 	return (

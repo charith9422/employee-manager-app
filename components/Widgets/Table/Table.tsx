@@ -1,8 +1,6 @@
 import Image from "next/image";
-import { Trash3 } from "react-bootstrap-icons";
 import { Employee, EmployeePayload } from "../../../models";
 import Button from "../../Elements/Button/Button";
-import Icon from "../../Elements/Icon/Icon";
 import styles from "./Table.module.scss";
 
 type TableProps = {

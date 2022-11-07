@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
-import { Employee, EmployeePayload } from "../models";
+import { EmployeePayload } from "../models";
 
 type EmployeeProviderProps = {
 	children: ReactNode;

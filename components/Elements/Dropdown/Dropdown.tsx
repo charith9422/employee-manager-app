@@ -1,4 +1,7 @@
-import { Form } from "react-bootstrap";
+import { Field } from "formik";
+import { Col, Row } from "react-bootstrap";
+import { getBorderStyles } from "../../../helpers/validators";
+import styles from "./Dropdown.module.scss";
 
 export interface List {
 	label: string;
@@ -7,18 +10,41 @@ export interface List {
 type DropdownProps = {
 	options: List[];
 	label: string;
+	errors?: any;
+	fieldName: string;
+	error?: string;
+	touch?: boolean;
 };
-const Dropdown: React.FC<DropdownProps> = ({ options, label }) => {
+const Dropdown: React.FC<DropdownProps> = ({
+	options,
+	label,
+	errors,
+	fieldName,
+	error,
+	touch,
+}) => {
 	return (
 		<>
-			<Form.Label>{label}</Form.Label>
-			<Form.Select>
-				{options.map((d, i) => (
-					<option value={d.value} key={i}>
-						{d.label}
-					</option>
-				))}
-			</Form.Select>
+			<Row>
+				<Col>
+					<div className={styles.customControls}>
+						<label>{label}</label>
+						<Field
+							as="select"
+							name={fieldName}
+							style={getBorderStyles(errors, fieldName)}
+						>
+							<option defaultValue={"Select"}>Please Select</option>
+							{options.map((d) => (
+								<option value={d.value} key={d.value}>
+									{d.label}
+								</option>
+							))}
+						</Field>
+					</div>
+					{error && touch ? <div className={styles.errors}>{error}</div> : null}
+				</Col>
+			</Row>
 		</>
 	);
 };
