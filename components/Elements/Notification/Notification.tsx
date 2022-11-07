@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { useNotificationAlert } from "../../../helpers/hooks/useNotificationAlert";
 
 type NotificationProps = {
