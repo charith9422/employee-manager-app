@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import NotificationContext from "../../../context/NotificationContext";
 import EmployeeService from "../../../helpers/services/employee";
 import { Employee } from "../../../models";
 import { fetchEmployees } from "../../../store/slices/employeeSlice";
@@ -27,6 +28,7 @@ const ListAllEmployees: React.FC<ListAllEmployeesProps> = ({
 	const [isGrid, setIsGrid] = useState<boolean>(true);
 	const router = useRouter();
 	const dispatch = useDispatch<AppDispatch>();
+	const { setNotificationMessage } = useContext(NotificationContext);
 
 	const onDelete = (id: string) => {
 		deleteEmployee(id).then((res) => {
@@ -34,6 +36,7 @@ const ListAllEmployees: React.FC<ListAllEmployeesProps> = ({
 			if (res?.status === 200) {
 				router.push("/employee/list");
 				dispatch(fetchEmployees());
+				setNotificationMessage(res.data.message);
 			}
 		});
 	};
