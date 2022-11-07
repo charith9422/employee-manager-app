@@ -1,20 +1,16 @@
 import { Card, Col, Row } from "react-bootstrap";
-import Button from "../../Elements/Button/Button";
-import Dropdown from "../../Elements/Dropdown/Dropdown";
-import InputText from "../../Elements/InputText/InputText";
-import { Formik, useFormik, Form, Field, getIn, FormikErrors } from "formik";
-import * as Yup from "yup";
+import { Formik, Form, Field, getIn } from "formik";
+
 import { useContext, useEffect, useState } from "react";
 import EmployeeService from "../../../helpers/services/employee";
-import { Employee, EmployeePayload } from "../../../models";
+import { EmployeePayload } from "../../../models";
 import { useRouter } from "next/router";
 import styles from "./Form.module.scss";
 import EmployeeContext from "../../../context/EmployeeContext";
 import { EmployeeInitial } from "../../../helpers/initialValues/initialValues";
+import { ValidationSchema } from "../../../helpers/validators";
 
 type FormProps = {
-	//selectedEmployee?: Employee;
-	//onSubmit: ({ values }: any) => void;
 	operation: string;
 };
 
@@ -25,8 +21,6 @@ function getStyles(errors: any, fieldName: string) {
 		};
 	}
 }
-const phoneRegExp =
-	/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const FormN: React.FC<FormProps> = ({ operation }) => {
 	const router = useRouter();
@@ -36,20 +30,6 @@ const FormN: React.FC<FormProps> = ({ operation }) => {
 	useEffect(() => {
 		setFormValues(selectedEmployee);
 	}, [selectedEmployee]);
-
-	const ValidationSchema = Yup.object().shape({
-		first_name: Yup.string()
-			.min(6, "Should be 6 character of min length")
-			.max(10, "Should not be exceed 10 character of max length")
-			.required("Field cannot be empty"),
-		last_name: Yup.string()
-			.min(6, "Should be 6 character of min length")
-			.max(10, "Should not be exceed 10 character of max length")
-			.required("Field cannot be empty"),
-		email: Yup.string().email("Invalid email").required("Required"),
-		number: Yup.string().matches(phoneRegExp, "Phone number is not valid"),
-		gender: Yup.string().required("Required"),
-	});
 
 	const onSubmit = async (values: EmployeePayload) => {
 		if (operation === "EDIT") {
