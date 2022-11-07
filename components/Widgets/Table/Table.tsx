@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Trash3 } from "react-bootstrap-icons";
 import { Employee, EmployeePayload } from "../../../models";
 import Button from "../../Elements/Button/Button";
 import styles from "./Table.module.scss";
@@ -51,7 +52,7 @@ const Table: React.FC<TableProps> = ({ data, onEdit, onDelete }) => {
 									onBtnClick={() => onEdit("EDIT", d)}
 								></Button>
 								<Button
-									buttonText="Delete"
+									icon={<Trash3 />}
 									variant="danger"
 									onBtnClick={() => onDelete(d._id)}
 								></Button>

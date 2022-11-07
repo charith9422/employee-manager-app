@@ -55,6 +55,7 @@ const ListAllEmployees: React.FC<ListAllEmployeesProps> = ({
 							<Button
 								buttonText="Add Employee"
 								onBtnClick={addEmployee}
+								isRounded
 							></Button>
 							<Drawer isGrid={isGrid} setIsGrid={() => setIsGrid(!isGrid)} />
 						</div>

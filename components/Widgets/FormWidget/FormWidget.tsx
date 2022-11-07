@@ -11,6 +11,7 @@ import { ValidationSchema } from "../../../helpers/validators";
 import InputText from "../../Elements/InputText/InputText";
 import Dropdown from "../../Elements/Dropdown/Dropdown";
 import { formStyles } from "../../../helpers/common";
+import { useTranslation } from "next-i18next";
 
 type FormProps = {
 	operation: string;
@@ -21,6 +22,7 @@ const FormWidget: React.FC<FormProps> = ({ operation }) => {
 	const { selectedEmployee, setSelectedEmployee } = useContext(EmployeeContext);
 	const [formValues, setFormValues] = useState<EmployeePayload>();
 	const id: any = router?.query?.id;
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		setFormValues(selectedEmployee);
@@ -81,21 +83,21 @@ const FormWidget: React.FC<FormProps> = ({ operation }) => {
 							<Form>
 								<Card.Body>
 									<InputText
-										label={"First Name"}
+										label={t("formLabels.firstName")}
 										error={errors.first_name}
 										touch={touched.first_name}
 										fieldName={"first_name"}
 										errors={errors}
 									/>
 									<InputText
-										label={"Last Name"}
+										label={t("formLabels.lastName")}
 										error={errors.last_name}
 										touch={touched.last_name}
 										fieldName={"last_name"}
 										errors={errors}
 									/>
 									<InputText
-										label={"Email"}
+										label={t("formLabels.email")}
 										error={errors.email}
 										touch={touched.email}
 										fieldName={"email"}
@@ -103,7 +105,7 @@ const FormWidget: React.FC<FormProps> = ({ operation }) => {
 										errors={errors}
 									/>
 									<InputText
-										label={"Number"}
+										label={t("formLabels.number")}
 										error={errors.number}
 										touch={touched.number}
 										fieldName={"number"}
@@ -114,7 +116,7 @@ const FormWidget: React.FC<FormProps> = ({ operation }) => {
 											{ value: "M", label: "Male" },
 											{ value: "F", label: "Female" },
 										]}
-										label={"Gender"}
+										label={t("formLabels.gender")}
 										fieldName={"gender"}
 										error={errors.gender}
 										touch={touched.gender}
