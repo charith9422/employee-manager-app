@@ -12,6 +12,7 @@ import InputText from "../../Elements/InputText/InputText";
 import Dropdown from "../../Elements/Dropdown/Dropdown";
 import { formStyles } from "../../../helpers/common";
 import { useTranslation } from "next-i18next";
+import NotificationContext from "../../../context/NotificationContext";
 
 type FormProps = {
 	operation: string;
@@ -20,6 +21,7 @@ type FormProps = {
 const FormWidget: React.FC<FormProps> = ({ operation }) => {
 	const router = useRouter();
 	const { selectedEmployee, setSelectedEmployee } = useContext(EmployeeContext);
+	const { setNotificationMessage } = useContext(NotificationContext);
 	const [formValues, setFormValues] = useState<EmployeePayload>();
 	const id: any = router?.query?.id;
 	const { t } = useTranslation();
@@ -34,6 +36,7 @@ const FormWidget: React.FC<FormProps> = ({ operation }) => {
 				if (res) {
 					router.push("/employee/list");
 					setFormValues(EmployeeInitial);
+					setNotificationMessage(res.data.message);
 				}
 			});
 		} else {
@@ -41,6 +44,7 @@ const FormWidget: React.FC<FormProps> = ({ operation }) => {
 				if (res) {
 					router.push("/employee/list");
 					setFormValues(EmployeeInitial);
+					setNotificationMessage(res.data.message);
 				}
 			});
 		}

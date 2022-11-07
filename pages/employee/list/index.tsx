@@ -13,11 +13,13 @@ const Index: NextPage = () => {
 	const router = useRouter();
 	const { employees } = useAllEmployees();
 	const { setSelectedEmployee } = useContext(EmployeeContext);
-	const { notificationMessage } = useContext(NotificationContext);
+	const { notificationMessage, setNotificationMessage } =
+		useContext(NotificationContext);
 
 	const onClickAdd = () => {
 		router.push("/employee/add");
 		setSelectedEmployee(EmployeeInitial);
+		setNotificationMessage("");
 	};
 
 	const editEmployee = (operation: string, data: Employee) => {
