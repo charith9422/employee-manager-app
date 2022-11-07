@@ -27,7 +27,7 @@ const CardWidget: React.FC<CardWidgetProps> = ({ data, onEdit, onDelete }) => {
 				<ul className={styles.cardContent}>
 					<li>{data.email}</li>
 					<li>{data.number}</li>
-					<li>{data.gender}</li>
+					<li>{data.gender === "M" ? "Male" : "Female"}</li>
 				</ul>
 
 				<ul className={styles.actionItems}>

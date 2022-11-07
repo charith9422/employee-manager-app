@@ -43,7 +43,7 @@ const Table: React.FC<TableProps> = ({ data, onEdit, onDelete }) => {
 							<td>{d.last_name}</td>
 							<td>{d.email}</td>
 							<td>{d.number}</td>
-							<td>{d.gender}</td>
+							<td>{d.gender === "M" ? "Male" : "Female"}</td>
 							<td>
 								<Button
 									buttonText="Edit"
