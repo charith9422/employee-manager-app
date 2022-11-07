@@ -1,16 +1,17 @@
+@import "../../../styles/variables";
 .tableWrapper {
 	border-collapse: collapse;
 	width: 100%;
 	th,
 	td {
-		border: 1px solid #2bd640;
+		border: 1px solid $green-color-3;
 		padding: 0.6rem;
 	}
 	th {
-		color: #ffffff;
+		color: $white-color-2;
 	}
 	th {
-		background: #59bd1a;
+		background: $green-color-4;
 	}
 	.actionItems {
 		display: flex;

@@ -1,3 +1,5 @@
+@import "../../../styles/variables";
+
 .customControls {
 	display: flex;
 	padding: 0.5rem;
@@ -9,11 +11,11 @@
 		height: 3rem;
 		background: #f0f0f0;
 		border: none;
-		border-bottom: 1px solid #696464;
+		border-bottom: 1px solid $black-color-1;
 	}
 }
 
 .errors {
 	padding-left: 21%;
-	color: red;
+	color: $red-color-1;
 }

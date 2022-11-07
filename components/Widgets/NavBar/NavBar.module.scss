@@ -1,7 +1,9 @@
+@import "../../../styles/variables";
+
 .navBar {
 	list-style: none;
-	background: #5812c9;
-	color: #ffffff;
+	background: $blue-color-1;
+	color: $white-color-2;
 	li {
 		padding: 1rem;
 	}
