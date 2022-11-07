@@ -10,7 +10,7 @@ type GridLayoutProps = {
 const GridLayout: React.FC<GridLayoutProps> = ({ data, onEdit, onDelete }) => {
 	return (
 		<>
-			<Row>
+			<Row data-testid="grid-layout-wrapper">
 				{data.map((d, i) => (
 					<Col key={i} lg={3}>
 						<CardWidget data={d} key={i} onEdit={onEdit} onDelete={onDelete} />

@@ -15,7 +15,7 @@ const TableLayout: React.FC<TableLayoutProps> = ({
 	return (
 		<>
 			<Container>
-				<Row>
+				<Row data-testid="table-layout-wrapper">
 					<Col>
 						<Table data={data} onEdit={onEdit} onDelete={onDelete} />
 					</Col>

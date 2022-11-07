@@ -15,7 +15,7 @@ export const ValidationSchema = Yup.object().shape({
 		.required("Last name cannot be empty"),
 	email: Yup.string().email("Invalid email").required("Email Required"),
 	number: Yup.string().matches(phoneRegExpLk, "Invalid phone number"),
-	gender: Yup.string().required("Required"),
+	gender: Yup.string().required("Gender required to be select"),
 });
 
 export const getBorderStyles = (errors: any, fieldName: string) => {

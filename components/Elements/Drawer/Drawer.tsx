@@ -7,7 +7,7 @@ type DrawerProps = {
 };
 const Drawer: React.FC<DrawerProps> = ({ isGrid, setIsGrid }) => {
 	return (
-		<div>
+		<div data-testid="drawer-wrapper">
 			<Button onClick={() => setIsGrid(!isGrid)}>
 				{isGrid ? <Grid1x2 /> : <Table />}
 			</Button>

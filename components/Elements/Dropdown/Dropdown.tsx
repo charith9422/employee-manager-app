@@ -27,7 +27,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 		<>
 			<Row>
 				<Col>
-					<div className={styles.customControls}>
+					<div className={styles.customControls} data-testid="dropdown-wrapper">
 						<label>{label}</label>
 						<Field
 							as="select"

@@ -11,7 +11,7 @@ const AddEmployee: React.FC = () => {
 	};
 	return (
 		<>
-			<Container>
+			<Container data-testid="add-employee-wrapper">
 				<Row>
 					<Col md={{ span: 2, offset: 11 }}>
 						<Button buttonText="List View" onBtnClick={getListView}></Button>

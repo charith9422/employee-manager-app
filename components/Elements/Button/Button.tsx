@@ -13,7 +13,7 @@ const CustomButton: React.FC<ButtonProps> = ({
 	variant,
 }) => {
 	return (
-		<div className={styles.btnWrapper}>
+		<div className={styles.btnWrapper} data-testid="button-wrapper">
 			<Button onClick={onBtnClick} variant={variant}>
 				{buttonText}
 			</Button>

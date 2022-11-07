@@ -24,7 +24,10 @@ const InputText: React.FC<InputTextProps> = ({
 		<>
 			<Row>
 				<Col>
-					<div className={styles.customControls}>
+					<div
+						className={styles.customControls}
+						data-testid="input-text-wrapper"
+					>
 						<label>{label}</label>
 						<Field
 							autoComplete="off"

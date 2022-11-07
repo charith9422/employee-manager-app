@@ -4,7 +4,7 @@ type IconProps = {
 const Icon: React.FC<IconProps> = ({ icon }) => {
 	return (
 		<>
-			<div>{icon}</div>
+			<div data-testid="icon">{icon}</div>
 		</>
 	);
 };
