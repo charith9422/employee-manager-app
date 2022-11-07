@@ -1,8 +1,11 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import EmployeeService from "../../../helpers/services/employee";
 import { Employee } from "../../../models";
+import { fetchEmployees } from "../../../store/slices/employeeSlice";
+import { AppDispatch } from "../../../store/store";
 import Button from "../../Elements/Button/Button";
 import Drawer from "../../Elements/Drawer/Drawer";
 import GridLayout from "../../Layouts/GridLayout/GridLayout";
@@ -24,12 +27,14 @@ const ListAllEmployees: React.FC<ListAllEmployeesProps> = ({
 }) => {
 	const [isGrid, setIsGrid] = useState<boolean>(true);
 	const router = useRouter();
+	const dispatch = useDispatch<AppDispatch>();
 
 	const onDelete = (id: string) => {
 		deleteEmployee(id).then((res) => {
 			console.log(res);
 			if (res?.status === 200) {
 				router.push("/employee/list");
+				dispatch(fetchEmployees());
 			}
 		});
 	};
@@ -46,10 +51,15 @@ const ListAllEmployees: React.FC<ListAllEmployeesProps> = ({
 		<>
 			<Container>
 				<Row>
-					<div className={styles.actionItems}>
-						<Button buttonText="Add Employee" onBtnClick={addEmployee}></Button>
-						<Drawer isGrid={isGrid} setIsGrid={() => setIsGrid(!isGrid)} />
-					</div>
+					<Col>
+						<div className={styles.actionItems}>
+							<Button
+								buttonText="Add Employee"
+								onBtnClick={addEmployee}
+							></Button>
+							<Drawer isGrid={isGrid} setIsGrid={() => setIsGrid(!isGrid)} />
+						</div>
+					</Col>
 				</Row>
 				<br></br>
 				<Row>

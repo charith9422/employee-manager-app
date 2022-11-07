@@ -13,9 +13,11 @@ const CustomButton: React.FC<ButtonProps> = ({
 	variant,
 }) => {
 	return (
-		<Button onClick={onBtnClick} variant={variant}>
-			{buttonText}
-		</Button>
+		<div className={styles.btnWrapper}>
+			<Button onClick={onBtnClick} variant={variant}>
+				{buttonText}
+			</Button>
+		</div>
 	);
 };
 

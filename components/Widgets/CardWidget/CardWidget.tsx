@@ -18,7 +18,7 @@ type CardWidgetProps = {
 };
 const CardWidget: React.FC<CardWidgetProps> = ({ data, onEdit, onDelete }) => {
 	return (
-		<Card style={{ width: "15rem", marginBottom: "1rem" }}>
+		<Card style={{ width: "20rem", marginBottom: "1rem" }}>
 			<Card.Img
 				variant="top"
 				src={
