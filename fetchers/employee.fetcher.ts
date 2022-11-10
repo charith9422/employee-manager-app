@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosClient = axios.create({
-	baseURL: "http://localhost:3001",
+	baseURL: "https://employee-api-6wj7.vercel.app",
 	headers: {
 		"Content-Type": "application/json",
 	},
