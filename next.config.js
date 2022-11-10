@@ -17,7 +17,15 @@ const nextConfig = {
       },
     ],
   },
-  i18n
+  i18n,
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://employee-api-six.vercel.app/:path*',
+      },
+    ]
+  },
 }
 
 
