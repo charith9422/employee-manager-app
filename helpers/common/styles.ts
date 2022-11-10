@@ -7,3 +7,10 @@ export const buttonRoundedStyle = {
 	background: "#541db3",
 	border: 0,
 };
+
+export const fullyRoundedBtnStyle = {
+	background: "#541db3",
+	border: "none",
+	marginLeft: "1rem",
+	borderRadius: "1rem",
+};
